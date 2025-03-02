@@ -1,0 +1,9 @@
+#1/bin/bash
+for arg in "$@"; do
+  echo "clearing cache of $arg ..."
+  rm -rf /var/cache/mapcache/$arg
+  echo "clearing cache of $arg ... done"
+  echo "seeding cache of $arg ..."
+  sudo -u apache mapcache_seed -c /etc/mapcache.xml -t $arg
+  echo "seeding cache of $arg ... done"
+done

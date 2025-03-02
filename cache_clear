@@ -1,0 +1,6 @@
+#1/bin/bash
+for arg in "$@"; do
+  echo "clearing cache of $arg ..."
+  rm -rf /var/cache/mapcache/$arg
+  echo "clearing cache of $arg ... done"
+done
